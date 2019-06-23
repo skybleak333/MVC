@@ -10,7 +10,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <?php echo $content; ?>
+        <div class="wrapper">
+            <?php echo $content; ?>
+        </div>
         <script src="/public/js/main_edit.js"></script>
         <script src="/public/js/img.js"></script>
     </body>

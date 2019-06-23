@@ -187,7 +187,7 @@
                                             <td>'.$orders['id_order'].'</td>
                                             <td>'.$orders['product_id'].'</td>
                                             <td>'.$orders['name'].'</td>
-                                            <td>'.$orders['price'].'</td>
+                                            <td>'.$orders['price'].'$</td>
                                             <td>'.$orders['count'].'</td>
                                             <td>'.$orders['phone'].'</td>
                                             <td>'.$orders['email'].'</td>

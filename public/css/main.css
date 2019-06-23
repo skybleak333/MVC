@@ -1,5 +1,13 @@
 /* Шрифты */
 /*font-family: 'Roboto', sans-serif;*/
+.wrapper{
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+}
+.cont{
+    padding-bottom: 100px;
+}
 /* Шапка сайта */
 header *{
     font-family: 'Roboto', sans-serif;
@@ -43,6 +51,9 @@ header *{
     cursor: pointer;
 }
 /* Главное меню сайта */
+main{
+    padding-bottom: 100px;
+}
 main *{
     font-family: 'Roboto', sans-serif;
 }
@@ -161,6 +172,8 @@ footer{
     margin-top: 30px;
     color: #fff;
     text-align: center;
+    position: absolute;
+    bottom: 0;
     width: 100%;
     font-size: 20px;
     padding-top: 10px;
@@ -216,7 +229,7 @@ footer{
 /* Страца с товаром */
 .img__product img{
     width: 100%;
-    height: 350px;
+    height: 400px;
 }
 .productions .desk{
     text-align: left;

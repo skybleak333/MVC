@@ -64,13 +64,14 @@ class Admin extends Model
     }
     /* Выбор редактируемого продукта */
     public function edit_sel($id){
+        //debug($id);
         $sql = "SELECT * FROM `img` WHERE `id_product` = :id";
         $img = $this->db->row($sql,["id" => $id]);
 
         $sql = "SELECT * FROM `product` JOIN `sumilar` ON `product`.`id_product` = `sumilar`.`id_sp` WHERE `sumilar`.`id_product` = :id" ;
         $sim = $this->db->row($sql,["id" => $id]);
 
-        $sql = "SELECT * FROM `product` WHERE `product`.`id_product` NOT IN (select `sumilar`.`id_sp` FROM `sumilar` WHERE `sumilar`.`id_product` = '$id')";
+        $sql = "SELECT * FROM `product` WHERE `product`.`id_product` NOT IN (select `sumilar`.`id_sp` FROM `sumilar` WHERE `sumilar`.`id_product` = '$id') AND `product`.`id_product` != '$id'";
         $all = $this->db->row($sql);
 
         $sql = "SELECT * FROM `product` WHERE `id_product`= :id";
@@ -103,6 +104,7 @@ class Admin extends Model
     public function edit_sim($id, $similar){           
         $sql = "DELETE FROM `sumilar` WHERE sumilar.id_product = :id";
         $this->db->query($sql, ["id" => $id]);
+    
 
         for ($i = 0; $i < count($similar); $i++){
             $id_s = $similar[$i];

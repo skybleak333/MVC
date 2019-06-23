@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="backet">
-                        <a href="javascript://"><i class="fas fa-shopping-bag"></i> Корзина<span class="backet_cout">(<?php echo $backet  ?>)</span></a>
+                        <a href="/">Назад</a>
                     </div> 
                 </div>
             </div>

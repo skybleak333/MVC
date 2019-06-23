@@ -79,7 +79,7 @@
                                 <br />
                                 <select name="similar__select[]" id="similar" multiple="multiple">';
                                     foreach($sim as $s){
-                                        echo "<option value=".$s['id_product']." selected>".$s['id_sp']." - ".$s['title']."</option>";
+                                        echo "<option value=".$s['id_sp']." selected>".$s['id_sp']." - ".$s['title']."</option>";
                                     };
                                 echo'
                                 </select>
