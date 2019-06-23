@@ -63,6 +63,7 @@
                             <th>Удалить</th>
                         </tr>
                         <?php
+                        /* Вывод заказов */
                         if (!empty($product)){
                             foreach ($product as $prod){
                                 $prod['price'] = number_format($prod['price'],  2, '.',' ');
@@ -81,14 +82,15 @@
                         }
                         ?>
                     </table>
+                    <!-- Форма отпраки заказ -->
                     <div class="orders">
                         <div class="order__form">
-                            <form action="" method="POST">
-                                <input type="name" name="name" placeholder="Enter your name" required autofocus>
+                            <form action="" method="POST" onsubmit="return order_send()">
+                                <input type="name" name="name" class="name animated" placeholder="Enter your name" required autofocus>
                                 <br />
-                                <input type="email" name="email" placeholder="Enter your email" required>
+                                <input type="email" name="email"  class="email animated" placeholder="Enter your email" required>
                                 <br />
-                                <input type="phone" name="phone" placeholder="Enter your phone" required>
+                                <input type="phone" name="phone" class="phone animated" placeholder="Enter your phone" required>
                                 <br />
                                 <button>Оформить заказ</button>
                             </form>                                                      
