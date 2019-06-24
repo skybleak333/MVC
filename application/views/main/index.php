@@ -64,7 +64,7 @@
 
                                 foreach($img as $i){
                                     if (isset($i['id_product']) && ($prod['id_product'] == $i['id_product'])){
-                                        echo '<img src="./public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
+                                        echo '<img src="../public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
                                         break;
                                     }
                                 }
@@ -74,10 +74,8 @@
                               <span>'. $prod['cost'].'$</span>
                               <div class="modals '.$i['id_product'].'">
                                   <div class="btn">
-                                    <form action="product" method="POST">
-                                      <button name="prod" value='.$prod['id_product'].'>Товар</button>
+                                      <a class="" href="/product/'.$prod['id_product'].'" name="page">Продукт</a>
                                       <a href="javascript://" class="buy" id='.$prod['id_product'].'>Купить</a>
-                                    </form>
                                   </div>
                               </div>
                             </div>
@@ -93,16 +91,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-center">
-                    <form action="" method="POST">
-                        <ul>
-                            <?php
-                                 /* Добавление пагинаторов */
-                                for($i = 1; $i <= $max; $i++){
-                                    echo "<li class='page-item'><button class='page-link' name='page' value=".($i-1)." onclick='send(this)' id=".$i.">$i</button></li>";
-                                }
-                            ?>
-                        </ul>
-                    </form>
+                        <?php
+                            for($i = 1; $i <= $max; $i++){
+                                echo '
+                                    <a class="page-link" href="/'.($i-1).'" name="page">'.$i.'</a>
+                                ';
+                            }
+                        ?>
                 </div>
             </div>
         </div>

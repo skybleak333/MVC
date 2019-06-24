@@ -41,7 +41,6 @@ header{
 
 .product__form{
     padding-top: 20%;
-    padding-left: 30%;
 }
 #statuss{
     border-radius: 5px;
@@ -91,6 +90,13 @@ header{
 .main__nav{
     min-height: 100vh;
     height: 100%;
+}
+.main__nav a{
+    color: #000;
+}
+.main__nav a:hover{
+    text-decoration: none;
+    color: #8b8b8b;
 }
 .main__edit{
     height: 100%;
@@ -205,4 +211,85 @@ header{
 .sees__img li{
     position: relative;
     list-style: none;
+}
+.production{
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.production__item , .edit__item{
+    width: 250px;
+    position: relative;
+    display: none;
+    overflow: hidden;
+}
+.production__item img , .edit__item img{
+    width: 100%;
+    height: 300px;
+}
+#form__add__product {
+    display: block;
+    margin-left: 30%;
+}
+#form__edit {
+    display: block;
+    margin-left: 30%;
+}
+#pag, #pags{
+    width: 100%;
+    padding-top: 50px;
+}
+#pag ul, #pags ul{
+    padding: 0;
+    width: 100%;
+    margin: 0 20px;
+}
+.page-item{
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.page-item button{
+    width: 50px;
+    border-radius: 5px;
+}
+.page-item:hover{
+    transform: scale(1.1);
+    color: rgb(255, 81, 0);
+}
+.modals{
+    width: 100%;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    transition: all 1s ease;
+    background: rgba(0, 0, 0, 0.521);
+}
+.modals .btn{
+    position: absolute;
+    top: 40%;
+    left: 8%;
+}
+.modals .btn a,.modals .btn button {
+    display: inline-block;
+    font-size: 18px;
+    background: rgb(117, 117, 117);
+    border-radius: 2px;
+    width: 150px;
+    margin: 0 8px;
+    transition: all 0.4s ease;
+    color: #000;
+    padding: 6px 0;
+    border: none;
+}
+.modals .btn a:hover,.modals .btn button:hover{
+    border-radius: 8px;
+    color: rgb(59, 59, 59);
+    text-decoration: none;
+}
+#pags{
+    display: none;
 }

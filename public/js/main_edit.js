@@ -37,6 +37,7 @@ $('.cart').on('click', function(e){
             data: {'clean': ids}, 
             success: function(){
                 $('.'+ids).fadeOut(1000);
+                location.reload();
             }
         });
     }

@@ -18,5 +18,6 @@
     <body>
         <?php echo $content; ?>
         <script src="/public/js/admin_panel.js"></script>
+        <script src="/public/js/admin_page.js"></script>
     </body>
 </html>

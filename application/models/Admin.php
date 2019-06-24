@@ -35,21 +35,42 @@ class Admin extends Model
         }
     }
     /* Получение продуктов || список админов || список заказов */
-    public function getlist(){
+    public function getlist($id){
         $sql = "SELECT * FROM `admin`";
         $admin = $this->db->row($sql);
 
+        $id *=6;
+        $sql = "SELECT MIN(`id_product`) min FROM `product` WHERE `id_product` > $id";
+        $min =  $this->db->row($sql)[0]['min'];
+        $min = floor($min);
+
+        /* Выборка */
+        $sql = "SELECT prod.`id_product`,im.`way` AS img FROM `product` prod JOIN `img` AS im ON prod.`id_product`=im.`id_product` WHERE prod.status = 'on' AND prod.id_product >= :id ";
+        $img = $this->db->row($sql, ["id" => $id]);
+
+        $sql = "SELECT COUNT(*) count FROM `product` WHERE status = 'on'";
+        $max = $this->db->row($sql)[0]['count'] / 8;
+        if ($max > 1){
+            $max =floor($max);
+            $max = $max + 1;
+        }else{
+            $max = floor($max);
+        }
+
+        $sql = "SELECT * FROM product WHERE status = 'on' AND `id_product` > :id LIMIT 8";
+        $product = $this->db->row($sql, ["id" => $id]);
 
         $sql = "SELECT * FROM `orders`";
         $order = $this->db->row($sql);
-
-        $sql = "SELECT * FROM `product`";
-        $result = [
-            'product' => $this->db->row($sql),
+        /* Создание массива с данными для старницы */
+        $mainC =[
+            'product' => $product,
+            'max' => $max,
+            'img' => $img,
             'admin' => $admin,
             'order' => $order,
         ];
-        return $result;
+        return $mainC;
     }
     /* Удаление записей */
     public function del($id){
@@ -136,8 +157,10 @@ class Admin extends Model
 
     /* Добавление Админа */
     public function addAdmin($login, $password){
+        $passKey = md5(uniqid());
+        $password .= $passKey;
         $password = md5($password);
-        $sql = "INSERT INTO `admin`(`id`, `name`, `password`) VALUES (NULL, '$login', '$password')";
+        $sql = "INSERT INTO `admin`(`id`, `name`, `password`, `passKey`) VALUES (NULL, '$login', '$password', '$passKey')";
         $this->db->query($sql);     
     }
 

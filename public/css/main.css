@@ -241,6 +241,7 @@ footer{
 }
 .btn_prod {
     text-align: center;
+    padding-bottom: 50px;
 }   
 .btn_prod a{
     width: 150px;

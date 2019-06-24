@@ -12,10 +12,11 @@ class MainController extends Controller
     } 
     /* Главная страница */
     public function indexAction(){
-        $this->view->layout = 'main';      
+        $this->view->layout = 'main';     
+        $url = trim($_SERVER['REQUEST_URI'], '/'); 
         $backet = $this->upd_backet();
-        if (isset($_POST['page'])){
-            $page = $_POST['page'];
+        if (!empty($url)){
+            $page = $url;
 		}
 		else{
 			$page = 0;
@@ -65,9 +66,11 @@ class MainController extends Controller
     /* Страница продукта */
     public function productAction(){
         $backet = $this->upd_backet();
+        $url = trim($_SERVER['REQUEST_URI'], '/'); 
+        $url = substr($url,'8');
         $prod = [
-            'product' => $this->model->myProduct($_POST['prod']),
-            'sim' => $this->model->mySim($_POST['prod'])
+            'product' => $this->model->myProduct($url),
+            'sim' => $this->model->mySim($url)
         ];
         $this->view->renderMain('Cтраница товара', $backet, $prod);
     }

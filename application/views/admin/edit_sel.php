@@ -22,11 +22,32 @@
 <main>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="main__edit">
-                        <!-- Боковая панель с выором действий -->
+        <div class="col-lg-3">
+                <div class="main__nav">
+                        <!-- Боковая панель с выором действий (Связанных с редактированием товра)-->
                     <div class="product">
-                        <h2 class="product__add">Редактирование</h2>
+                        <h2 class="product__add">Товар</h2>
+                        <ul class="product__list">
+                            <li class="add__product__form"><a href="/admin/panel">Добавление</a></li>
+                            <li class="rem__product__form"><a href="/admin/panel">Удаление</a></li>
+                            <li class="edit__product__form"><a href="/admin/panel">Редактирование</a></li>
+                        </ul>
+                    </div>
+                     <!-- Боковая панель с выором действий (Связанных с редактированием учетных записей)-->
+                    <div class="admin__pandel__main">
+                        <h2 class="admin__panel__add">Настройка</h2>
+                        <ul class="admin__panel__list">
+                            <li class="change__pass"><a href="/admin/panel">Смена пароля</a></li>
+                            <li class="basic__admin">
+                                Основные настроики
+                                <ul class="setting">
+                                    <li class="admin__list"><a href="/admin/panel">Список админов</a></li>
+                                    <li class="admin__add"><a href="/admin/panel">Добавить админа</a></li>
+                                    <li class="admin__rem"><a href="/admin/panel">Удалить админа</a></li>
+                                </ul>
+                            </li>
+                            <li class="list__order"><a href="/admin/panel">Список заказов</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -40,10 +61,6 @@
                               foreach($product as $prod){
                                 echo
                                 '
-                                <select name="edits" id="select__edit" required>
-                                    <option value="'.$prod['id_product'].'" selected >'.$prod['id_product'].'</option>
-                                </select>
-                                <br />
                                 <input type="text" name="tag" class="tag animated" placeholder="Наименование товара" value="'.$prod['tag'].'" required>
                                 <br />
                                 <input type="text" name="title" class="title animated" placeholder="Описание товара" value="'.$prod['title'].'" required>

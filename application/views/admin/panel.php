@@ -94,29 +94,87 @@
                             <button>Добавить товар</button>                        
                         </form>
                             <!-- Форма удаления карточки товара -->
-                        <form action="/admin/del" id="form__remove__product" method="POST" enctype=multipart/form-data>
-                            <select name="remove__selected" id="select__remove" required>
-                                <option value="" selected></option>
+                        <div class="production d-flex justify-centent-center">   
                                 <?php
+                                    /* Вывод товаров */
                                     foreach($product as $prod){
-                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['tag']."</option>";
-                                    };
+                                    echo 
+                                    '
+                                    <div class="production__item">
+                                    ';
+
+                                        foreach($img as $i){
+                                            if (isset($i['id_product']) && ($prod['id_product'] == $i['id_product'])){
+                                                echo '<img src="../public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
+                                                break;
+                                            }
+                                        }
+                                    echo
+                                    '
+                                    <div class="modals '.$i['id_product'].'">
+                                        <div class="btn">
+                                            <form action="del" method="POST" class="delete__form">
+                                            <button name="prod" value='.$prod['id_product'].'>Удалить</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    ';
+                                }
                                 ?>
-                            </select>
-                            <button>Удалить товар</button>
-                        </form>
+
+                                <form action="" method="POST" id="pag">
+                                <ul>
+                                    <?php
+                                        /* Добавление пагинаторов */
+                                        for($i = 1; $i <= $max; $i++){
+                                            echo "<li class='page-item'><button class='page-link' name='page' value=".($i-1)." onclick='send(this)' id=".$i.">$i</button></li>";
+                                        }
+                                    ?>
+                                </ul>
+                            </form>
+                            </div>
                             <!-- Форма редактирования карточки товара -->
-                        <form action="/admin/panel/edit_sel" id="form__edit__product" method="POST" enctype=multipart/form-data>
-                            <select name="edit__selected" id="select__edit" required>
-                                <option value="" selected ></option>
+                            <div class="production d-flex justify-centent-center">   
                                 <?php
+                                    /* Вывод товаров */
                                     foreach($product as $prod){
-                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['tag']."</option>";
-                                    };
+                                    echo 
+                                    '
+                                    <div class="edit__item">
+                                    ';
+
+                                        foreach($img as $i){
+                                            if (isset($i['id_product']) && ($prod['id_product'] == $i['id_product'])){
+                                                echo '<img src="../public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
+                                                break;
+                                            }
+                                        }
+                                    echo
+                                    '
+                                    <div class="modals '.$i['id_product'].'">
+                                        <div class="btn">
+                                            <form action="/admin/panel/edit_sel" method="POST" class="remove__form">
+                                            <button name="prods" value='.$prod['id_product'].'>Редактировать</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    ';
+                                }
                                 ?>
-                            </select>
-                            <button>Редактировать товар</button>
-                        </form>
+
+                                <form action="" method="POST" id="pags">
+                                <ul>
+                                    <?php
+                                        /* Добавление пагинаторов */
+                                        for($i = 1; $i <= $max; $i++){
+                                            echo "<li class='page-item'><button class='page-link' name='page' value=".($i-1)." onclick='send(this)' id=".$i.">$i</button></li>";
+                                        }
+                                    ?>
+                                </ul>
+                            </form>
+                        </div>
                     </div>
                     <!-- Форма смены пароля -->
                     <div class="admin__panel">

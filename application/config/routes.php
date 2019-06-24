@@ -6,6 +6,10 @@ return [
         'controller' => 'main',
         'action' => 'index',
     ],
+    '\d+' =>[
+        'controller' => 'main',
+        'action' => 'index',
+    ],
     /* Страница с карзиной */
     'cart' =>[
         'controller' => 'main',
@@ -13,6 +17,10 @@ return [
     ],
     /* Страница с карточкой товара */
     'product' =>[
+        'controller' => 'main',
+        'action' => 'product',
+    ],
+    'product/\d+' =>[
         'controller' => 'main',
         'action' => 'product',
     ],

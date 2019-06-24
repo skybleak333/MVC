@@ -22,11 +22,19 @@ document.getElementsByClassName('main__nav')[0].addEventListener('click', functi
     }
     if (e.target.className == "rem__product__form"){
         off_form();
-        document.getElementById('form__remove__product').style.display = 'block';
+        for(var i = 0; i <document.getElementsByClassName('production__item').length; i++){
+            document.getElementsByClassName('production__item')[i].style.display = 'block';
+            document.getElementsByClassName('delete__form')[i].style.display = 'block';
+        }
+        document.getElementById('pag').style.display = 'block';
     }
     if (e.target.className == "edit__product__form"){
         off_form();
-        document.getElementById('form__edit__product').style.display = 'block';
+        for(var i = 0; i <document.getElementsByClassName('edit__item').length; i++){
+            document.getElementsByClassName('edit__item')[i].style.display = 'block';
+            document.getElementsByClassName('remove__form')[i].style.display = 'block';
+        }
+        document.getElementById('pags').style.display = 'block';
     }
 
     /* Меню для основных настроек */
@@ -80,6 +88,14 @@ function off_form(){
     for(var i = 0; i < document.getElementsByTagName("form").length; i++){
         document.getElementsByTagName("form")[i].style.display = 'none';
     }
+    for(var i = 0; i <document.getElementsByClassName('production__item').length; i++){
+        document.getElementsByClassName('production__item')[i].style.display = 'none';
+        document.getElementsByClassName('edit__item')[i].style.display = 'none';
+        document.getElementsByClassName('delete__form')[i].style.display = 'none';
+        document.getElementsByClassName('remove__form')[i].style.display = 'none';
+    }      
+    document.getElementById('pag').style.display = 'none';
+    document.getElementById('pags').style.display = 'none';
     document.getElementsByClassName('admin')[0].style.display = 'none';
     document.getElementsByClassName('order')[0].style.display = 'none';
 }

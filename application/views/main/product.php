@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="backet">
-                        <a href="cart"><i class="fas fa-shopping-bag"></i> Корзина<span class="backet_cout">(<?php echo $backet  ?>)</span></a>
+                        <a href="/cart"><i class="fas fa-shopping-bag"></i> Корзина<span class="backet_cout">(<?php echo $backet  ?>)</span></a>
                     </div> 
                 </div>
             </div>
@@ -56,7 +56,7 @@
                         <i class="fas fa-chevron-left"></i>
                         <?php
                             foreach($product['img'] as $img){
-                                echo '<img src="./public/img/'.$img['img'].'" alt="" class="img_pros">';
+                                echo '<img src="../public/img/'.$img['img'].'" alt="" class="img_pros">';
                             }
                         ?>
                         <i class="fas fa-chevron-right"></i>
@@ -90,37 +90,40 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2>Похожие товары</h2>
-                    <div class="production d-flex justify-content-between">   
+                <div class="col-lg-12"> 
                     <?php
-                        /* Вывод похожих товаров */
-                        foreach($sim['sim'] as $s){
-                        echo 
-                        '
-                        <div class="production__item">
-                        ';
-
-                            foreach($sim['img'] as $i){
-                                if (isset($i['id_product']) && ($s['id_sp'] === $i['id_product'])){
-                                    echo '<img src="./public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
-                                    break;
+                        if (!empty($sim['sim'])){
+                            echo '<h2>Похожие товары</h2>
+                            <div class="production d-flex justify-content-between"> ';
+                            
+                            /* Вывод похожих товаров */
+                            foreach($sim['sim'] as $s){
+                            echo 
+                            '
+                            <div class="production__item">
+                            ';
+    
+                                foreach($sim['img'] as $i){
+                                    if (isset($i['id_product']) && ($s['id_sp'] === $i['id_product'])){
+                                        echo '<img src="../public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
+                                        break;
+                                    }
                                 }
-                            }
-                        echo
-                        '
-                            <h2>'.$s['tag'].' - '. $s['title'].'</h2>
-                            <span>'. $s['cost'].'</span>
-                            <div class="modals '.$i['id_product'].'">
-                                <div class="btn">
-                                <form action="product" method="POST">
-                                    <button name="prod" value='.$s['id_sp'].'>Товар</button>
-                                    <a href="javascript://" class="buy" id='.$s['id_sp'].'>Купить</a>
-                                </form>
+                            echo
+                            '
+                                <h2>'.$s['tag'].' - '. $s['title'].'</h2>
+                                <span>'. $s['cost'].'</span>
+                                <div class="modals '.$i['id_product'].'">
+                                    <div class="btn">
+                                    <form action="product" method="POST">
+                                        <a class="" href="/product/'.$s['id_sp'].'" name="page">Продукт</a>
+                                        <a href="javascript://" class="buy" id='.$s['id_sp'].'>Купить</a>
+                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        ';
+                            ';
+                        }
                     }
                     ?>
                 </div>

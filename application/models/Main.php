@@ -6,6 +6,7 @@ class Main extends Model
     /* Обновление записей */
     public function update($id){
         /* Нахождение минмального элемента */
+        $this->checkID($id);
         $id *=6;
         $sql = "SELECT MIN(`id_product`) min FROM `product` WHERE `id_product` > $id";
         $min =  $this->db->row($sql)[0]['min'];
@@ -17,7 +18,12 @@ class Main extends Model
 
         $sql = "SELECT COUNT(*) count FROM `product` WHERE status = 'on'";
         $max = $this->db->row($sql)[0]['count'] / 6;
-        $max = floor($max);
+        if ($max > 1){
+            $max =floor($max);
+            $max = $max + 1;
+        }else{
+            $max = floor($max);
+        }
 
         $sql = "SELECT * FROM product WHERE status = 'on' AND `id_product` > :id LIMIT 6";
         $product = $this->db->row($sql, ["id" => $id]);
@@ -29,6 +35,9 @@ class Main extends Model
         ];
         return $mainC;
     }
+    public function checkID(&$id){
+		settype($id, 'integer');
+	}
     public function update_cart($id_cart){
         $sql = "SELECT * FROM `product` WHERE `id_product` = :id";
         $sql_i = "SELECT * FROM `img` WHERE `id_product` = :id LIMIT 1";
