@@ -10,7 +10,7 @@ class Main extends Model
         $sql = "SELECT MIN(`id_product`) min FROM `product` WHERE `id_product` > $id";
         $min =  $this->db->row($sql)[0]['min'];
         $min = floor($min);
-        $id += $min;
+
         /* Выборка */
         $sql = "SELECT prod.`id_product`,im.`way` AS img FROM `product` prod JOIN `img` AS im ON prod.`id_product`=im.`id_product` WHERE prod.status = 'on' AND prod.id_product >= :id ";
         $img = $this->db->row($sql, ["id" => $id]);

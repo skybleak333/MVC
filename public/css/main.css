@@ -96,14 +96,14 @@ main *{
 .production__item span{
     position: absolute;
     left: 5%;
-    color:#fff;
+    color:rgb(104, 104, 104);
 }
 .production__item h2{
     top: 5%;
-    font-size: 14px;
+    font-size: 18px;
 }
 .production__item span{
-    top: 10%;
+    bottom: 10%;
 }
 /* Доп к товарам сайта */
 .modals{
@@ -229,7 +229,6 @@ footer{
 /* Страца с товаром */
 .img__product img{
     width: 100%;
-    height: 400px;
 }
 .productions .desk{
     text-align: left;

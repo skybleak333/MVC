@@ -72,7 +72,7 @@
                                <tr class="'.$prod['id'].'">
                                 <td>'.$prod['id'].'</td> 
                                 <td>'.$prod['name'].'</td> 
-                                <td>'.$prod['price'].'</td> 
+                                <td>'.$prod['price'].'$</td> 
                                 <td>'.$prod['count'].'</td> 
                                 <td><img src="./public/img/'.$prod['img'].'" alt=""></td>
                                 <td><a href="javascript://" class="del_item"><i class="del_item fas fa-trash-alt" id="'.$prod['id'].'"></i></a></td> 

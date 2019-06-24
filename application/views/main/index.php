@@ -71,7 +71,7 @@
                             echo
                             '
                               <h2>'.$prod['tag'].' - '. $prod['title'].'</h2>
-                              <span>'. $prod['cost'].'</span>
+                              <span>'. $prod['cost'].'$</span>
                               <div class="modals '.$i['id_product'].'">
                                   <div class="btn">
                                     <form action="product" method="POST">

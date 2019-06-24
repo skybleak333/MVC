@@ -92,7 +92,7 @@ function addForm(){
     var tag = formAdd.querySelector('.tag');
     var title = formAdd.querySelector('.title');
     var cost = formAdd.querySelector('.cost');
-    var provs = /[a-zA-Z]+/g;
+    var provs = /[a-zA-Zа-яА-Я]+/g;
     var num_prov = /^(\d){1,13}$/g;
     if (!provs.test(tag.value)){
         tag.classList.add('wobble');
@@ -120,9 +120,9 @@ function editForm(){
     var tag = formAdd.querySelector('.tag');
     var title = formAdd.querySelector('.title');
     var cost = formAdd.querySelector('.cost');
-    var provs = /[a-zA-Z]+/g;
+    var provs = /[a-zA-Zа-яА-Я]+/g;
     var num_prov = /^(\d){1,13}$/g;
-    if (!provs.test(tag.value)){
+    if (!provs.exec(tag.value)){
         tag.classList.add('wobble');
         alert('Неправильно заполнена форма');
         tag.classList.remove('wobble');

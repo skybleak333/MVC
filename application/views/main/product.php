@@ -67,9 +67,9 @@
                         <?php
                             echo 
                             '
-                            <h2>Название: '.$product['product']['tag'].'</h2>
-                            <p>Описание: '.$product['product']['title'].'</p>
-                            <span>Цена: '.$product['product']['cost'].'$</span>
+                            <p><strong>Название:</strong>'.$product['product']['tag'].'</p>
+                            <p><strong>Описание:</strong> '.$product['product']['title'].'</p>
+                            <span><strong>Цена:</strong> '.$product['product']['cost'].'$</span>
                             '
                         ?>
                     </div>
@@ -115,7 +115,7 @@
                                 <div class="btn">
                                 <form action="product" method="POST">
                                     <button name="prod" value='.$s['id_sp'].'>Товар</button>
-                                    <a href="javascript://" class="buy" id='.$s['id_product'].'>Купить</a>
+                                    <a href="javascript://" class="buy" id='.$s['id_sp'].'>Купить</a>
                                 </form>
                                 </div>
                             </div>

@@ -64,7 +64,7 @@
                     <div class="product__form">
                             <!-- Форма добавление карточки товара -->
                         <form action="/admin/add" id="form__add__product" method="POST" enctype=multipart/form-data onsubmit="return addForm( );">
-                            <input type="text" name="tag" placeholder="Наименование товара" class="tag animated" required>
+                            <input type="text" name="tag" placeholder="Наименование товара" class="tag animated" required maxlength="20" autofocus>
                             <br />
                             <input type="text" name="title" placeholder="Описание товара" class="title animated" required>
                             <br />
@@ -86,7 +86,7 @@
                                 <option value=""></option>
                                 <?php
                                     foreach($product as $prod){
-                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['title']."</option>";
+                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['tag']."</option>";
                                     };
                                 ?>
                             </select>
@@ -99,7 +99,7 @@
                                 <option value="" selected></option>
                                 <?php
                                     foreach($product as $prod){
-                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['title']."</option>";
+                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['tag']."</option>";
                                     };
                                 ?>
                             </select>
@@ -111,7 +111,7 @@
                                 <option value="" selected ></option>
                                 <?php
                                     foreach($product as $prod){
-                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['title']."</option>";
+                                       echo "<option value=".$prod['id_product'].">".$prod['id_product']." - ".$prod['tag']."</option>";
                                     };
                                 ?>
                             </select>

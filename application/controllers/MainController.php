@@ -51,7 +51,7 @@ class MainController extends Controller
                         $orderIdAll = $orderIdAll. $this->model->update_Order($prod['id'], $prod['price'], $prod['count'], $_POST['name'], $_POST['phone'], $_POST['email']).", ";
                         $priceAll += $prod['price'];
                     }
-                    $this->model->send_main($_POST['email'], $_POST['name'], $priceAll, $priceAll, $orderIdAll);
+                    $this->model->send_main($_POST['email'], $_POST['name'], $prodAll, $priceAll, $orderIdAll);
                     /* Очистка корзины */
                     unset($_SESSION['cart']);
                     session_destroy();
