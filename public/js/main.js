@@ -9,12 +9,6 @@ function order_send(){
     var name = order_form.querySelector('.name');
     var email = order_form.querySelector('.email');
     var phone = order_form.querySelector('.phone');
-    if (!provs.test(name.value)){
-        name.classList.add('wobble');
-        alert('Неправильно заполнена форма');
-        name.classList.remove('wobble');
-        prov = false;
-    }
     if (!em.test(email.value)){
         email.classList.add('wobble');
         alert('Неправильно заполнена форма');
