@@ -6,7 +6,7 @@ return [
         'controller' => 'main',
         'action' => 'index',
     ],
-    '\d+' =>[
+    '(\?page=\d+)' =>[
         'controller' => 'main',
         'action' => 'index',
     ],
@@ -20,7 +20,7 @@ return [
         'controller' => 'main',
         'action' => 'product',
     ],
-    'product/\d+' =>[
+    'product/(\?prod=\d+)' =>[
         'controller' => 'main',
         'action' => 'product',
     ],
@@ -46,6 +46,10 @@ return [
     ],
     /* Страница с реадктированием товара */
     'admin/panel/edit_sel' =>[
+        'controller' => 'admin',
+        'action' => 'edit_sel',
+    ],
+    'admin/panel/edit_sel/(\?id=\d+)' =>[
         'controller' => 'admin',
         'action' => 'edit_sel',
     ],

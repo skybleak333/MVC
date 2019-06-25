@@ -74,7 +74,7 @@
                               <span>'. $prod['cost'].'$</span>
                               <div class="modals '.$i['id_product'].'">
                                   <div class="btn">
-                                      <a class="" href="/product/'.$prod['id_product'].'" name="page">Продукт</a>
+                                      <a class="" href="/product/?prod='.$prod['id_product'].'" name="page">Продукт</a>
                                       <a href="javascript://" class="buy" id='.$prod['id_product'].'>Купить</a>
                                   </div>
                               </div>
@@ -94,7 +94,7 @@
                         <?php
                             for($i = 1; $i <= $max; $i++){
                                 echo '
-                                    <a class="page-link" href="/'.($i-1).'" name="page">'.$i.'</a>
+                                    <a class="page-link" href="/?page='.($i-1).'" name="page">'.$i.'</a>
                                 ';
                             }
                         ?>

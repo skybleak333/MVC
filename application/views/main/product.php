@@ -116,7 +116,7 @@
                                 <div class="modals '.$i['id_product'].'">
                                     <div class="btn">
                                     <form action="product" method="POST">
-                                        <a class="" href="/product/'.$s['id_sp'].'" name="page">Продукт</a>
+                                        <a class="" href="/product/?prod='.$s['id_sp'].'" name="page">Продукт</a>
                                         <a href="javascript://" class="buy" id='.$s['id_sp'].'>Купить</a>
                                     </form>
                                     </div>

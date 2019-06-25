@@ -153,10 +153,8 @@
                                     echo
                                     '
                                     <div class="modals '.$i['id_product'].'">
-                                        <div class="btn">
-                                            <form action="/admin/panel/edit_sel" method="POST" class="remove__form">
-                                            <button name="prods" value='.$prod['id_product'].'>Редактировать</button>
-                                            </form>
+                                        <div class="btn edits">
+                                            <a href="/admin/panel/edit_sel/?id='.$prod['id_product'].'" class="" id='.$prod['id_product'].'>Редактровать</a>
                                         </div>
                                     </div>
                                     </div>

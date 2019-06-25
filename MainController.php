@@ -66,8 +66,8 @@ class MainController extends Controller
     public function productAction(){
         $backet = $this->upd_backet();
         $prod = [
-            'product' => $this->model->myProduct($_GET['prod']),
-            'sim' => $this->model->mySim($_GET['prod'])
+            'product' => $this->model->myProduct($_POST['prod']),
+            'sim' => $this->model->mySim($_POST['prod'])
         ];
         $this->view->renderMain('Cтраница товара', $backet, $prod);
     }

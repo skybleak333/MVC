@@ -39,8 +39,10 @@ class AdminController extends Controller
     } 
     /* Страница редактирования товара */
     public function edit_selAction(){
-        if (isset($_POST['prods'])){
-            $this->view->render('Административная панель',  $this->model->edit_sel($_POST['prods']));
+        if (isset($_GET['id'])){
+            $this->view->render('Административная панель',  $this->model->edit_sel($_GET['id']));
+        }else{
+            $this->view->redirect('/admin/panel');
         }
     }
     public function editAction(){

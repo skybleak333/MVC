@@ -32,7 +32,7 @@ document.getElementsByClassName('main__nav')[0].addEventListener('click', functi
         off_form();
         for(var i = 0; i <document.getElementsByClassName('edit__item').length; i++){
             document.getElementsByClassName('edit__item')[i].style.display = 'block';
-            document.getElementsByClassName('remove__form')[i].style.display = 'block';
+            document.getElementsByClassName('edits')[i].style.display = 'block';
         }
         document.getElementById('pags').style.display = 'block';
     }
@@ -92,7 +92,7 @@ function off_form(){
         document.getElementsByClassName('production__item')[i].style.display = 'none';
         document.getElementsByClassName('edit__item')[i].style.display = 'none';
         document.getElementsByClassName('delete__form')[i].style.display = 'none';
-        document.getElementsByClassName('remove__form')[i].style.display = 'none';
+        document.getElementsByClassName('edits')[i].style.display = 'none';
     }      
     document.getElementById('pag').style.display = 'none';
     document.getElementById('pags').style.display = 'none';

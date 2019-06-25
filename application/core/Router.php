@@ -14,7 +14,7 @@ class Router {
         foreach ($arr as $key => $val) {
             $this->add($key, $val);
         }
-        
+       // debug($_GET['page']);
     }
 
     public function add($route, $params) {
