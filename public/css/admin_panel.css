@@ -212,14 +212,29 @@ header{
     position: relative;
     list-style: none;
 }
+.sees__img a{
+    position: absolute;
+    right: 12%;
+    color: #000;
+    top: 5%;
+    font-size: 30px;
+    transition: all 0.4s ease;
+}
+.sees__img a i{
+    transition: all 0.4s ease;
+}
+.sees__img a i:hover{
+    color: #8b8b8b;
+    transform: rotate(15deg);
+}
 .production{
     flex-wrap: wrap;
     margin: 20px 0;
 }
-.production__item , .edit__item{
+.production__item {
     width: 250px;
     position: relative;
-    display: none;
+    display: block;
     overflow: hidden;
 }
 .production__item img , .edit__item img{
@@ -237,23 +252,13 @@ header{
 #form__add__product{
     display: none;
 }
-#pag, #pags{
-    display: none;
+#pag{
     width: 100%;
+    text-align: center;
     padding-top: 50px;
 }
-#pag ul, #pags ul{
-    padding: 0;
-    width: 100%;
-    margin: 0 20px;
-}
-.page-item{
+#pag a{
     display: inline-block;
-    font-size: 18px;
-    margin: 0 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
 }
 .page-item button{
     width: 50px;
@@ -294,7 +299,4 @@ header{
     border-radius: 8px;
     color: rgb(59, 59, 59);
     text-decoration: none;
-}
-#pags{
-    display: none;
 }

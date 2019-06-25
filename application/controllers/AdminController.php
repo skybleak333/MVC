@@ -11,8 +11,8 @@ class AdminController extends Controller
     }
     /* Главная страница */
     public function panelAction(){   
-        if (isset($_POST['page'])){
-            $page = $_POST['page'];
+        if (isset($_GET['page'])){
+            $page = $_GET['page'];
 		}
 		else{
 			$page = 0;
@@ -32,8 +32,8 @@ class AdminController extends Controller
     }
     /* Удаление товара */
     public function delAction(){
-        if (isset($_POST['prod'])){
-            $this->model->del($_POST['prod']);
+        if (isset($_GET['id'])){
+            $this->model->del($_GET['id']);
             $this->view->redirect('/admin/panel');
         }
     } 
@@ -63,8 +63,8 @@ class AdminController extends Controller
             $this->model->add_sim($_POST['edits'],$_POST['similar__select__add']);
         }
         /* Удаление фото */
-        if (isset($_POST['similar__select__del'])){
-            $this->model->del_img($_POST['similar__select__del']);
+        if (isset($_GET['del_img'])){
+            $this->model->del_img($_GET['del_img']);
         }
         /* Возврат */
         $this->view->redirect('/admin/panel');

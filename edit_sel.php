@@ -61,19 +61,24 @@
                               foreach($product as $prod){
                                 echo
                                 '
-                                <select name="edits" id="select__edit" required style="display:none">
-                                    <option value="'.$prod['id_product'].'" selected >'.$prod['id_product'].'</option>
-                                </select>
                                 <input type="text" name="tag" class="tag animated" placeholder="Наименование товара" value="'.$prod['tag'].'" required>
                                 <br />
                                 <input type="text" name="title" class="title animated" placeholder="Описание товара" value="'.$prod['title'].'" required>
                                 <br />
                                 <ul class="sees__img">';
                                 foreach($img as $i){
-                                    echo '<li><a href="/admin/panel/edit/?del_img='.$i['id_img'].'""><i class="fas fa-trash-alt"></i></a><img src="/public/img/'.$i['way'].'" class="img__add" ></li>';
+                                    echo '<li><img src="/public/img/'.$i['way'].'" class="img__add" ></li>';
                                 }
                                 echo 
                                 '</ul>
+                                <label for="">Удалить картинки: </label>
+                                <br />
+                                <select name="similar__select__del[]" id="del__img" multiple="multiple">';
+                                    foreach($img as $i){
+                                        echo "<option value=".$i['id_img'].">".$i['way']."</option>";
+                                    };
+                                echo'
+                                </select>
                                 <label for="">Добавить картинки: </label>
                                 <input type="file" name="img[]" placeholder="Изоображение товара"  value="'.$prod['tag'].'" multiple="true">
                                 <br />
@@ -90,7 +95,6 @@
                                 <label for="similar__select">Похожие товары: </label>
                                 <br />
                                 <select name="similar__select[]" id="similar" multiple="multiple">';
-                                echo '<option value="">Очистить</option>';
                                     foreach($sim as $s){
                                         echo "<option value=".$s['id_sp']." selected>".$s['id_sp']." - ".$s['title']."</option>";
                                     };
@@ -100,7 +104,6 @@
                                 <label for="similar__select">Добавить еще товары: </label>
                                 <br />
                                 <select name="similar__select__add[]" id="similar" multiple="multiple">';
-                                echo '<option value="">Очистить</option>';
                                     foreach($all as $a){
                                         echo "<option value=".$a['id_product'].">".$a['id_product']." - ".$a['title']."</option>";
                                     };

@@ -143,19 +143,17 @@ class Admin extends Model
     }
     /* Удаление изоображения */
     public function del_img($del_img){
-        for ($i = 0; $i < count($del_img); $i++){
-            $sql = "DELETE FROM `img` WHERE `id_img` = '$del_img[$i]'";
-            $this->db->query($sql);
-        }
-    }
-    /* Смена пароля */
-    public function changePass($name, $password){
-        $password = md5($password);
-        $sql = "UPDATE `admin` SET `password` = '$password' WHERE `name` = '$name'";
+        $sql = "DELETE FROM `img` WHERE `id_img` = '$del_img'";
         $this->db->query($sql);
     }
-
-    /* Добавление Админа */
+    /* Смена пароля */
+    public function changePass($login, $password){
+        $passKey = md5(uniqid());
+        $password .= $passKey;
+        $password = md5($password);
+        $sql = "UPDATE `admin` SET `password` = '$password' ,`passKey` = '$passKey' WHERE `name` = '$login'";
+        $this->db->query($sql);     
+    }
     public function addAdmin($login, $password){
         $passKey = md5(uniqid());
         $password .= $passKey;

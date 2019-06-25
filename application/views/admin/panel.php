@@ -105,74 +105,33 @@
 
                                         foreach($img as $i){
                                             if (isset($i['id_product']) && ($prod['id_product'] == $i['id_product'])){
-                                                echo '<img src="../public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
+                                                echo '<img src="/public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
                                                 break;
                                             }
                                         }
                                     echo
                                     '
                                     <div class="modals '.$i['id_product'].'">
-                                        <div class="btn">
-                                            <form action="del" method="POST" class="delete__form">
-                                            <button name="prod" value='.$prod['id_product'].'>Удалить</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    ';
-                                }
-                                ?>
-
-                                <form action="" method="POST" id="pag">
-                                <ul>
-                                    <?php
-                                        /* Добавление пагинаторов */
-                                        for($i = 1; $i <= $max; $i++){
-                                            echo "<li class='page-item'><button class='page-link' name='page' value=".($i-1)." onclick='send(this)' id=".$i.">$i</button></li>";
-                                        }
-                                    ?>
-                                </ul>
-                            </form>
-                            </div>
-                            <!-- Форма редактирования карточки товара -->
-                            <div class="production d-flex justify-centent-center">   
-                                <?php
-                                    /* Вывод товаров */
-                                    foreach($product as $prod){
-                                    echo 
-                                    '
-                                    <div class="edit__item">
-                                    ';
-
-                                        foreach($img as $i){
-                                            if (isset($i['id_product']) && ($prod['id_product'] == $i['id_product'])){
-                                                echo '<img src="../public/img/'.$i['img'].'" alt="" class="'.$i['id_product'].'">';
-                                                break;
-                                            }
-                                        }
-                                    echo
-                                    '
-                                    <div class="modals '.$i['id_product'].'">
-                                        <div class="btn edits">
+                                        <div class="btn removes">
                                             <a href="/admin/panel/edit_sel/?id='.$prod['id_product'].'" class="" id='.$prod['id_product'].'>Редактровать</a>
+                                            <a href="/admin/del/?id='.$prod['id_product'].'" class="" id='.$prod['id_product'].'>Удалить</a>
                                         </div>
                                     </div>
                                     </div>
                                     ';
                                 }
                                 ?>
-
-                                <form action="" method="POST" id="pags">
-                                <ul>
-                                    <?php
-                                        /* Добавление пагинаторов */
-                                        for($i = 1; $i <= $max; $i++){
-                                            echo "<li class='page-item'><button class='page-link' name='page' value=".($i-1)." onclick='send(this)' id=".$i.">$i</button></li>";
-                                        }
-                                    ?>
-                                </ul>
-                            </form>
+                            <div id="pag">
+                                <?php
+                                    for($i = 1; $i <= $max; $i++){
+                                        echo '
+                                            <a class="page-link" href="/admin/panel/?page='.($i-1).'" name="page">'.$i.'</a>
+                                        ';
+                                    }
+                                ?>
+                            </div>
                         </div>
+                            <!-- Форма редактирования карточки товара -->
                     </div>
                     <!-- Форма смены пароля -->
                     <div class="admin__panel">

@@ -34,6 +34,10 @@ return [
         'controller' => 'admin',
         'action' => 'panel',
     ],
+    'admin/panel/(\?page=\d+)' =>[
+        'controller' => 'admin',
+        'action' => 'panel',
+    ],
     /* Страница с добавлением товара */
     'admin/add' =>[
         'controller' => 'admin',
@@ -41,6 +45,10 @@ return [
     ],
     /* Страница с удалением товара */
     'admin/del' =>[
+        'controller' => 'admin',
+        'action' => 'del',
+    ],
+    'admin/del/(\?id=\d+)' =>[
         'controller' => 'admin',
         'action' => 'del',
     ],
@@ -55,6 +63,10 @@ return [
     ],
     /* Страница с реадктированием Админа */
     'admin/panel/edit' =>[
+        'controller' => 'admin',
+        'action' => 'edit',
+    ],
+    'admin/panel/edit/(\?del_img=\d+)' =>[
         'controller' => 'admin',
         'action' => 'edit',
     ],
