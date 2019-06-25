@@ -92,9 +92,9 @@
             <div class="row">
                 <div class="col-lg-12 d-flex justify-content-center">
                         <?php
-                            for($i = 1; $i <= $max+1; $i++){
+                            for($i = 1; $i <= $max; $i++){
                                 echo '
-                                    <a class="page-link" href="/?page='.($i-1).'" name="page">'.$i.'</a>
+                                    <a class="page-link" href="/?page='.($i).'" name="page">'.$i.'</a>
                                 ';
                             }
                         ?>

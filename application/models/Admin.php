@@ -38,8 +38,8 @@ class Admin extends Model
     public function getlist($id){
         $sql = "SELECT * FROM `admin`";
         $admin = $this->db->row($sql);
-
-        $id *=6;
+        $id -= 1;
+        $id *=8;
         $sql = "SELECT MIN(`id_product`) min FROM `product` WHERE `id_product` > $id";
         $min =  $this->db->row($sql)[0]['min'];
         $min = floor($min);
@@ -57,8 +57,9 @@ class Admin extends Model
             $max = floor($max);
         }
 
-        $sql = "SELECT * FROM product WHERE status = 'on' AND `id_product` > :id LIMIT 8";
-        $product = $this->db->row($sql, ["id" => $id]);
+        $sql = "SELECT * FROM product WHERE status = 'on'  LIMIT 8 OFFSET ".$id;
+        $product = $this->db->row($sql);
+        
 
         $sql = "SELECT * FROM `orders`";
         $order = $this->db->row($sql);

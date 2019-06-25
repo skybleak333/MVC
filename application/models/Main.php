@@ -6,8 +6,9 @@ class Main extends Model
     /* Обновление записей */
     public function update($id){
         /* Нахождение минмального элемента */
-        $this->checkID($id);
+        $id -= 1;
         $id *=6;
+        
         $sql = "SELECT MIN(`id_product`) min FROM `product` WHERE `id_product` > $id";
         $min =  $this->db->row($sql)[0]['min'];
         $min = floor($min);
@@ -25,8 +26,8 @@ class Main extends Model
             $max = floor($max);
         }
 
-        $sql = "SELECT * FROM product WHERE status = 'on' AND `id_product` > :id LIMIT 6";
-        $product = $this->db->row($sql, ["id" => $id]);
+        $sql = "SELECT * FROM product WHERE status = 'on'  LIMIT 6 OFFSET ".$id;
+        $product = $this->db->row($sql);
         /* Создание массива с данными для старницы */
         $mainC =[
             'product' => $product,
@@ -84,11 +85,15 @@ class Main extends Model
 
         $sql = "SELECT * FROM `product` WHERE `id_product` = '$id'";
         $prod = $this->db->row($sql);
-
-        $product = [
-            'product' => $prod[0],
-            'img' => $img,
-        ];
+        if ($prod!=null){
+            $product = [
+                'product' => $prod[0],
+                'img' => $img,
+            ];
+        }
+        else{
+            $product = null;
+        }
         return $product;
     }   
     public function mySim($id){

@@ -10,12 +10,18 @@ class AdminController extends Controller
         $this->view->layout = 'admin';
     }
     /* Главная страница */
-    public function panelAction(){   
+    public function panelAction(){       
+        $product = "";
         if (isset($_GET['page'])){
             $page = $_GET['page'];
+            $product = $this->model->getlist($page);
+            $provs = $product['product'];
+            if (empty($provs)){
+                $this->view->redirect('/');
+            }
 		}
 		else{
-			$page = 0;
+			$page = 1;
         }
         $this->view->render('Административная панель', $this->model->getlist($page));
     }
@@ -40,7 +46,12 @@ class AdminController extends Controller
     /* Страница редактирования товара */
     public function edit_selAction(){
         if (isset($_GET['id'])){
-            $this->view->render('Административная панель',  $this->model->edit_sel($_GET['id']));
+            $provs = $this->model->edit_sel($_GET['id']);
+            if (!empty($provs['product'])){
+                $this->view->render('Административная панель',  $this->model->edit_sel($_GET['id']));
+            }else{
+                $this->view->redirect('/admin/panel');
+            }
         }else{
             $this->view->redirect('/admin/panel');
         }

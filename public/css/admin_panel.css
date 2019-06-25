@@ -235,6 +235,7 @@ header{
     width: 250px;
     position: relative;
     display: block;
+    margin-bottom: 30px;
     overflow: hidden;
 }
 .production__item img , .edit__item img{

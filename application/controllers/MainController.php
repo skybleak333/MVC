@@ -14,11 +14,17 @@ class MainController extends Controller
     public function indexAction(){
         $this->view->layout = 'main';      
         $backet = $this->upd_backet();
+        $product = "";
         if (isset($_GET['page'])){
             $page = $_GET['page'];
+            $product = $this->model->update($page);
+            $provs = $product['product'];
+            if (empty($provs)){
+                $this->view->redirect('/');
+            }
 		}
 		else{
-			$page = 0;
+			$page = 1;
         }
         $this->view->renderMain('Главная страница', $backet, $this->model->update($page));
     }
@@ -65,11 +71,20 @@ class MainController extends Controller
     /* Страница продукта */
     public function productAction(){
         $backet = $this->upd_backet();
-        $prod = [
-            'product' => $this->model->myProduct($_GET['prod']),
-            'sim' => $this->model->mySim($_GET['prod'])
-        ];
-        $this->view->renderMain('Cтраница товара', $backet, $prod);
+        if (isset($_GET['prod'])){
+            $pp = $this->model->myProduct($_GET['prod']);
+            if ($pp['product'] != null){
+                $prod = [
+                    'product' => $this->model->myProduct($_GET['prod']),
+                    'sim' => $this->model->mySim($_GET['prod'])
+                ];
+                $this->view->renderMain('Cтраница товара', $backet, $prod);
+            }else{
+                $this->view->redirect('/');
+            }
+        }else{
+            $this->view->redirect('/');
+        }
     }
     /* Функция проверки корзины */
     private function upd_backet(){

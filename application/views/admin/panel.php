@@ -93,7 +93,7 @@
                             <button>Добавить товар</button>                        
                         </form>
                             <!-- Форма удаления карточки товара -->
-                        <div class="production d-flex justify-centent-center">   
+                        <div class="production d-flex justify-content-between">   
                                 <?php
                                     /* Вывод товаров */
                                     foreach($product as $prod){
@@ -122,9 +122,9 @@
                                 ?>
                             <div id="pag">
                                 <?php
-                                    for($i = 1; $i <= $max + 1; $i++){
+                                    for($i = 1; $i <= $max; $i++){
                                         echo '
-                                            <a class="page-link" href="/admin/panel/?page='.($i-1).'" name="page">'.$i.'</a>
+                                            <a class="page-link" href="/admin/panel/?page='.($i).'" name="page">'.$i.'</a>
                                         ';
                                     }
                                 ?>
