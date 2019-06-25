@@ -36,8 +36,7 @@
                         <h2 class="product__add">Товар</h2>
                         <ul class="product__list">
                             <li class="add__product__form">Добавление</li>
-                            <li class="rem__product__form">Удаление</li>
-                            <li class="edit__product__form">Редактирование</li>
+                            <li class="rem__product__form">Удаление / Редактирование</li>
                         </ul>
                     </div>
                      <!-- Боковая панель с выором действий (Связанных с редактированием учетных записей)-->
@@ -123,7 +122,7 @@
                                 ?>
                             <div id="pag">
                                 <?php
-                                    for($i = 1; $i <= $max; $i++){
+                                    for($i = 1; $i <= $max + 1; $i++){
                                         echo '
                                             <a class="page-link" href="/admin/panel/?page='.($i-1).'" name="page">'.$i.'</a>
                                         ';

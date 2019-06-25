@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 24 2019 г., 05:27
+-- Время создания: Июн 25 2019 г., 12:20
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.1.22
 
@@ -31,16 +31,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `name` varchar(265) NOT NULL,
-  `password` varchar(265) NOT NULL
+  `password` varchar(265) NOT NULL,
+  `passKey` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `password`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 'root', '63a9f0ea7bb98050796b649e85481845');
+INSERT INTO `admin` (`id`, `name`, `password`, `passKey`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', ''),
+(2, 'root', '63a9f0ea7bb98050796b649e85481845', ''),
+(7, 'adds', '544ffbd8c26d41adf93733d7c30bb2fa', '5762b98069e33e8e35d6a20ff575a608');
 
 -- --------------------------------------------------------
 
@@ -59,16 +61,7 @@ CREATE TABLE `img` (
 --
 
 INSERT INTO `img` (`id_img`, `way`, `id_product`) VALUES
-(1, 'DM0DM06501_002_main_listing.jpg', 1),
-(3, 'MW0MW11108_911_main.jpg', 3),
 (4, 'MW0MW10752_118_main.jpg', 4),
-(9, 'S20S200158_401_alternate1.jpg', 8),
-(10, 'S20S200158_401_alternate3.jpg', 8),
-(11, 'S20S200158_401_main.jpg', 8),
-(12, 'TT0TT05277_428_alternate1.jpg', 9),
-(13, 'TT0TT05277_428_alternate3.jpg', 9),
-(14, 'TT0TT05277_428_main.jpg', 9),
-(15, 'TT0TT05778_428_main.jpg', 9),
 (16, 'DW0DW07445_CIK_alternate1.jpg', 10),
 (17, 'DW0DW07445_CIK_alternate2.jpg', 10),
 (18, 'DW0DW07445_CIK_main.jpg', 10),
@@ -86,26 +79,10 @@ INSERT INTO `img` (`id_img`, `way`, `id_product`) VALUES
 (30, 'WW0WW25658_840_main.jpg', 15),
 (31, 'WW0WW25179_100_alternate3.jpg', 16),
 (32, 'WW0WW25179_100_main.jpg', 16),
-(33, 'DM0DM06501_002_main_listing.jpg', 17),
-(34, 'DM0DM06539_806_main_listing.jpg', 17),
-(35, 'DM0DM07261_CGP_alternate1_listing.jpg', 17),
-(36, 'DM0DM07265_XAF_alternate1_listing.jpg', 17),
-(37, 'DW0DW07445_CIK_alternate1.jpg', 17),
-(38, 'DW0DW07445_CIK_alternate2.jpg', 17),
-(39, 'DW0DW07445_CIK_main.jpg', 17),
-(40, 'MW0MW10752_118_main.jpg', 17),
-(41, 'MW0MW10824_100_main_listing.jpg', 17),
-(42, 'MW0MW10829_100_main_listing.jpg', 17),
-(43, 'MW0MW10829_403_main_listing.jpg', 17),
-(44, 'MW0MW10830_501_main_listing.jpg', 17),
-(45, 'MW0MW10834_100_main_listing.jpg', 17),
-(46, 'MW0MW10936_100_alternate1.jpg', 17),
-(47, 'MW0MW11108_911_main.jpg', 17),
-(48, 'MW0MW11405_100_main_listing.jpg', 17),
-(49, 'S20S200158_401_alternate1.jpg', 17),
-(50, 'S20S200158_401_alternate3.jpg', 17),
-(51, 'S20S200158_401_main.jpg', 17),
-(52, 'TT0TT05277_428_alternate1.jpg', 17);
+(53, 'MW0MW10829_403_main_listing.jpg', 18),
+(54, 'MW0MW10830_501_main_listing.jpg', 18),
+(55, 'MW0MW10834_100_main_listing.jpg', 18),
+(56, 'MW0MW10936_100_alternate1.jpg', 18);
 
 -- --------------------------------------------------------
 
@@ -166,11 +143,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `tag`, `title`, `cost`, `status`, `similar`) VALUES
-(1, 'Футболка', 'Новая версия классической футболки украшена геометрическим логотипом в фирменной цветовой гамме Tommy Hilfiger.', '3990', 'on', '2'),
-(3, 'Джинсы', 'Эти стильные джинсы узкого кроя отличают модный эффект выцветания и сдержанная отделка декоративной контрастной строчкой.', '24567', 'on', '1'),
 (4, 'Худи', 'Это эффектное худи, дополненное фирменным логотипом Tommy Hilfiger, создаст яркий образ в непринужденном стиле.', '7654', 'on', '1'),
-(8, 'Костюм', 'Ощутите себя победителем спортивных состязаний в этой куртке с эффектом цветовых блоков. Стильная модель украшена логотипом Tommy Sport', '87120', 'on', '1'),
-(9, 'Куртка', 'Эта стильная куртка-бомбер из смесовой шерсти дополнена сдержанной фирменной отделкой', '68410', 'on', '1'),
 (10, 'Топ', 'Облегающий топ из эластичного трикотажа украшает эффектная фирменная отделка с логотипами', '18423', 'on', '2'),
 (11, 'Платье', 'Это роскошное трикотажное платье из вискозы украшено яркой отделкой фирменной тесьмой.', '13990', 'on', '1'),
 (12, 'Блейзер', 'Этот стильный блейзер, изготовленный в соответствии с технологией Tommy Hilfiger Flex, сохраняет форму и гарантирует особый комфорт', '87412', 'on', '2'),
@@ -178,7 +151,7 @@ INSERT INTO `product` (`id_product`, `tag`, `title`, `cost`, `status`, `similar`
 (14, 'Платье', 'Это кружевное платье с лифом асимметричного кроя и поясом, подчеркивающим линию талии, отлично дополнит ваш летний праздничный гардероб', '12345', 'on', '1'),
 (15, 'Юбка', 'Эта универсальная юбка расклешенного силуэта украшена необычной контрастной строчкой', '15465', 'on', '1'),
 (16, 'Футболка', 'Эта футболка из органического хлопка дополнена оригинальной отделкой: если присмотреться, на фоне ярких цветовых блоков проявится легендарный логотип Tommy Hilfiger', '16457', 'on', '1'),
-(17, 'Футболка', 'Новая версия классической футболки украшена геометрическим логотипом в фирменной цветовой гамме Tommy Hilfiger.', '87452', 'on', '2');
+(18, 'Футболка', 'Футболка супер', '21423', 'on', '2');
 
 -- --------------------------------------------------------
 
@@ -197,25 +170,9 @@ CREATE TABLE `sumilar` (
 --
 
 INSERT INTO `sumilar` (`id_similar`, `id_product`, `id_sp`) VALUES
-(2, 3, 1),
-(3, 3, 2),
 (4, 4, 1),
 (5, 4, 2),
 (6, 4, 3),
-(22, 8, 1),
-(23, 8, 2),
-(24, 8, 3),
-(25, 8, 4),
-(26, 8, 5),
-(27, 8, 6),
-(28, 8, 7),
-(29, 9, 1),
-(30, 9, 2),
-(31, 9, 3),
-(32, 9, 4),
-(33, 9, 5),
-(34, 9, 6),
-(35, 9, 7),
 (44, 11, 1),
 (45, 11, 2),
 (46, 11, 3),
@@ -241,9 +198,6 @@ INSERT INTO `sumilar` (`id_similar`, `id_product`, `id_sp`) VALUES
 (68, 16, 3),
 (73, 12, 3),
 (74, 12, 8),
-(75, 17, 1),
-(76, 17, 3),
-(77, 17, 4),
 (78, 10, 1),
 (79, 10, 3),
 (80, 10, 4),
@@ -292,13 +246,13 @@ ALTER TABLE `sumilar`
 -- AUTO_INCREMENT для таблицы `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `img`
 --
 ALTER TABLE `img`
-  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_img` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
@@ -310,13 +264,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `sumilar`
 --
 ALTER TABLE `sumilar`
-  MODIFY `id_similar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id_similar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
