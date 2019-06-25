@@ -2,7 +2,7 @@
 var order_form = document.querySelector('.order__form');
 function order_send(){
     var prov = true;
-    var provs = /[a-zA-Z]+/g;
+    var provs = /[a-zA-Zа-яА-Я]+/g;
     var num_prov = /^(\d){9,13}$/g;
     var em = /^[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}$/i;
     var order_form = document.querySelector('.order__form');
